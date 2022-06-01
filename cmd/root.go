@@ -1,7 +1,3 @@
-/*
-Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
-*/
 package cmd
 
 import (
@@ -10,12 +6,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var localPort int
+var LocalPort int
 
 var rootCmd = &cobra.Command{
 	Use:   "pangolin",
 	Short: "内网穿透命令行工具",
-	Long: `使用该工具可快速启动服务端和客户端，达到内网穿透效果`,
+	Long:  `使用该工具可快速启动服务端和客户端，达到内网穿透效果`,
 }
 
 func Execute() {
@@ -26,8 +22,5 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	rootCmd.Flags().IntVarP(&localPort,"localPort","lp",8080,"本地端口，服务端指用户访问端口，客户端指程序端口")
+	rootCmd.PersistentFlags().IntVarP(&LocalPort, "localPort", "l", 8080, "本地端口，服务端指用户访问端口，客户端指程序端口")
 }
-
-
